@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>오징어</li>
+        <li>꼴뚜기</li>
+        <li>대구</li>
+        <li>명태</li>
+        <li>거북이</li>
+    </ul>
+    <script>
+        var colors = ['red', 'green', 'blue', 'orange', 'pink']; // 자바스크립트에서 배열 선언, char타입이 없으므로 홀따옴표와 쌍따옴표 모두 문자열로 사용된다.
+        let lis = document.getElementsByTagName("ul")[0].getElementsByTagName("li"); // ul Tag 안에서 li를 찾음
+        console.dir(lis);
+
+        /*
+        for(var i=0; i<lis.length; i++) {
+            lis[i].style.backgroundColor = colors[i]; // 각각의 li 요소의 배경색으로 colors의 색상을 적용
+            lis[i].onclick = function(event) {
+                this.style.backgroundColor = colors[i];
+            }
+        } // 이미 i는 0 ~ 5까지 반복된 후 event가 발생하기 때문에 5가 나옴
+        */
+       
+        // 자바스크립트 객체는 캡슐화 안됨, 필요한 속성을 객체에 임의로 추가 가능
+        for(var i=0; i<lis.length; i++) {
+            lis[i].i = i;
+            lis[i].onclick = function(event) {
+                this.style.backgroundColor = colors[this.i];
+            }
+        }
+    </script>
+</body>
+</html>
