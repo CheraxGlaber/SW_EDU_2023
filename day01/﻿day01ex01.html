@@ -1,0 +1,39 @@
+<!-- 느낌표 + TAP키, html:5 _ TAP키 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 외부 스타일시트 -->
+    <link rel="stylesheet" type="text/css" href="day01ex01.css">
+    <!-- 내부 스타일시트, #으로 ID에 접근, .으로 class 접근 -->
+    <style>
+        body {
+            background-color: yellow;
+        }
+        #heading { 
+            color: #ffff00;
+            background-color: #ff0000;
+        }
+        .welcome {
+            color: orange;
+            background-color: green;
+        }
+    </style>
+</body>
+</head>
+<body>
+    <h1 id="heading">Hello world</h1>
+    <!-- body > h3.welcome -->
+    <h3 class="welcome">오신것을 환영합니다.</h3>
+    <h3>반갑습니다.</h3>
+    <script> // DOM - Document Object Model (문서 객체 모델) : 태그들을 자바스크립트에서 쓸 수 있게 객체로 만들어줌
+        let h1Tag = document.getElementById("heading");
+        var H3_TAG = document.getElementsByTagName("h3");
+        // 콘솔 테스트
+        console.log(h1Tag); // 로그로 찍는 콘솔
+        console.dir(h1Tag); // 콘솔로 태그의 내용을 봄 (속성)
+    </script>
+</html>
