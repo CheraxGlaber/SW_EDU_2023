@@ -28,37 +28,31 @@
             /* 0px 1px 2px 3px는 상이 0px 우가 1px 하가 2px 좌가 3px */
             /* margin은 바깥쪽으로 밀어내는 정도(바깥쪽으로의 간격), padding은 안쪽으로의 간격 */
         }
+        /* 스타일시트에서 속성을 가지고 접근할때는 대괄호 사용, 스타일시트에서 속성값으로 셀렉트 가능 */
+        button[data-pos-x="200"][data-pos-y="200"] { /* x, y값이 둘다 200인 경우 */
+            background-color: red;
+        }
     </style>
 </head>
 <body>
     <div id="btnGroup">  <!-- btnGroup으로 버튼을 묶어서 2행 2열로 나오도록 -->
          <!-- 좌측 상단이 0,0 좌표 : 예전에 CRT모니터를 썼을때 상이 뒤집혀서 -->
-        <button class= "playBtn">좌상</button> <!-- 자바스크립트는 최소한으로 쓰는 것이 좋음, 예:button안에 data-x = 0와 data-y = 0과 같이 좌표를 미리 지정 -->
-        <button class= "playBtn">우상</button>
-        <button class= "playBtn">좌하</button>
-        <button class= "playBtn">우하</button>
+        <button data-pos-x = "0" data-pos-y = "0" class = "playBtn">좌상</button>
+        <button data-pos-x = "200" data-pos-y = "0" class = "playBtn">우상</button>
+        <button data-pos-x = "0" data-pos-y = "200" class = "playBtn">좌하</button>
+        <button data-pos-x = "200" data-pos-y = "200" class = "playBtn">우하</button>
     </div>
     <div id = "box">Box</div>
     <script>
         var colors = ['blue', 'orange', 'brown', 'pink']
         var playBtnArr = document.getElementsByClassName("playBtn");
         var box = document.getElementById("box");
-
-        /*
-        playBtnArr[0].x = 0;    playBtnArr[0].y = 0;
-        playBtnArr[1].x = 200;  playBtnArr[1].y = 0;
-        playBtnArr[2].x = 0;    playBtnArr[2].y = 200;
-        playBtnArr[3].x = 200;  playBtnArr[3].y = 200;
-        */
-       var posArr = [
-        {x : 0, y : 0}, { x : 200, y : 0}, {x : 0, y : 200}, {x : 200, y : 200}
-        ];
         for(var count = 0; count < playBtnArr.length; count++) {
-            playBtnArr[count].x = posArr[count].x;
-            playBtnArr[count].y = posArr[count].y;
+            playBtnArr[count].color = colors[count];
             playBtnArr[count].onclick = function(event) {
-                box.style.left = this.x + "px";
-                box.style.top = this.y + "px";
+                box.style.left = this.dataset.posX + "px"; // data-x일 경우 data.x로 접근, 콘솔 로그 라이브로 확인 후 설정
+                box.style.top = this.dataset.posY + "px";
+                document.body.style.backgroundColor = this.color;
             }
         }
     </script>
