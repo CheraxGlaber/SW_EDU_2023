@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>폼 태그 연습</legend>
+        <lagel for="user_name">성명 : </lagel>
+        <input type="text" name="user_name" id="user_name">
+        <hr/>
+        <lagel for="gender">성별 : </lagel>
+        <input type="radio" name="gender" value="남"> 남
+        <input type="radio" name="gender" value="여"> 여
+        <hr/>
+        <lagel for="interest">취미 : </lagel>
+        <input type="checkbox" name="interest" value="코딩" checked> 코딩
+        <input type="checkbox" name="interest" value="개발"> 개발
+        <input type="checkbox" name="interest" value="기획"> 기획
+        <input type="checkbox" name="interest" value="프로그래밍"> 프로그래밍
+        <hr/>
+        <lagel for="hometown">사는 곳 : </lagel>
+        <select name="hometown" id="hometown">
+            <option value="서울">서울</option>
+            <option value="대구" selected>대구</option>
+            <option value="광주">광주</option>
+            <option value="부산">부산</option>
+            <option value="포항">포항</option>
+        </select>
+        <hr/>
+        <lagel for="email">이메일 : </lagel>
+        <input type="email" name="email">
+        <hr/>
+        <lagel for="age">나이 : </lagel>
+        <input type="number" name="age">
+        <input type="submit" value="전송"> <!-- 전송을 누르면 주소창에서 쿼리 확인 가능 -->
+    </fieldset>
+</body>
+</html>
