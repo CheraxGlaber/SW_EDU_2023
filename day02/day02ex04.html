@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" width="300">
+        <tfoot> <!-- tfoot는 무조건 표 내부 하단에 위치 -->
+            <th colspan="3">서울시 광진구 자양동</th> <!-- th부분은 자동으로 가운데 정렬 및 볼드체 -->
+        </tfoot>
+        <tbody> <!-- 원래는 tbody가 있음, 없어도 브라우저에서 알아서 넣어줌 -->
+            <tr>
+                <td>홍길동</td>
+                <td>hong@saram.com</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>김길동</td>
+                <td>kim@saram.com</td>
+                <td>22</td>
+            </tr>
+        </tbody>
+        <thead> <!-- thead는 무조건 표 내부 상단에 위치 -->
+            <th>성명</th>
+            <th>이메일</th>
+            <th>나이</th>
+        </thead>
+        <caption>회원 목록</caption> <!-- 일종의 제목, 무조건 제일 위로 올라감 -->
+    </table>
+</body>
+</html>
