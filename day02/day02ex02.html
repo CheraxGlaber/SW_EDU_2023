@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #nav > ul { /* 꺽쇠를 쓰면 바로 밑에 있는 엘리멘트에만 적용, 안쓰면 모든 자손에게 적용 */
+            border: 1px solid gray;
+            padding: 0px; /* li의 리스트 스타일이 제거된 후에도 남아있는 공간을 제거하기 위해 */
+            overflow: hidden; /* 높이가 없으므로 자동으로 높이 생성 후 오버플로*/
+            /* 너비가 200짜리 li가 5개 이므로 1000, 보더의 길이 10 (1개*2개(양쪽)*5개(li개수)), 둘다 더하면 1010 */
+            width: 1000px; /* but 아래 box-sizing: border-box에 의해 보더가 안쪽으로 증가하므로 1000으로 해도 됨 */
+        }
+        #nav li { /* nav 바로 밑의 자식이 아니더라도 li면 적용됨 */
+            /* 리스트 스타일(기본값:·)은 border에 포함 X */
+            border: 1px solid black; /* border-left 등으로 해당 방향의 border만 설정 가능 */
+            list-style: none;
+            width: 200px;
+            height: 50px;
+            display: block; /* inline-block: 블럭과 인라인의 특징을 모두 지님, but 상위 버전에서만 사용 가능 */
+            float: left; /* display: block과 float: left로 display: inline-block 처럼 */
+            box-sizing: border-box; /* 안쪽으로 보더가 증가하도록 설정 */
+            /* 글씨가 칸 중앙에 위치하도록 */
+            text-align: center;
+            line-height: 300%;
+        }
+    </style>
+</head>
+<body>
+    <div id="head">
+        <h1>길동이의 홈페이지</h1>
+        <div id="nav">
+            <ul>
+                <li>HOME</li>
+                <li>PROFILE</li>
+                <li>GALLERY</li>
+                <li>LECTURE</li>
+                <li>BOARD</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
