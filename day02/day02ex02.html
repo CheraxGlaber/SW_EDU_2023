@@ -24,22 +24,40 @@
             box-sizing: border-box; /* 안쪽으로 보더가 증가하도록 설정 */
             /* 글씨가 칸 중앙에 위치하도록 */
             text-align: center;
-            line-height: 300%;
+            line-height: 50px;
+        }
+        #nav li:hover { /* 마우스가 올라가면 */
+            background-color: pink;
+            border-bottom: 2.5px solid red;
+        }
+        h1{
+            text-align: center;
+            width: 1000px;
+        }
+        div#page { /* div요소 중 id가 page */
+            width: 1000px;
+            /* 블럭요소이므로 text-align이 안먹힘, 아래와 같이 하면 좌우가 모두 auto이니 가운데 정렬로 해석됨 */
+            margin: auto;
         }
     </style>
 </head>
 <body>
-    <div id="head">
-        <h1>길동이의 홈페이지</h1>
-        <div id="nav">
-            <ul>
-                <li>HOME</li>
-                <li>PROFILE</li>
-                <li>GALLERY</li>
-                <li>LECTURE</li>
-                <li>BOARD</li>
-            </ul>
+    <div id="page">
+        <div id="head">
+            <h1>길동이의 홈페이지</h1>
+            <div id="nav">
+                <ul>
+                    <li>HOME</li>
+                    <li>PROFILE</li>
+                    <li>GALLERY</li>
+                    <li>LECTURE</li>
+                    <li>BOARD</li>
+                </ul>
+            </div>
         </div>
+    <div id="content">
+        <h2>오신것을 환영합니다.</h2>
+    </div>
     </div>
 </body>
 </html>
