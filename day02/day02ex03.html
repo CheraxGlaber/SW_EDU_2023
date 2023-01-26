@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 태그 배워보기</title>
+</head>
+<body>
+    <h1>테이블 태그</h1>
+    <!--  table>tr*3>td*4 + tap : 3행 4열의 테이블 만들기 -->
+    <table bgcolor="gray" border="0" width="400" height="300" cellpadding="0" cellspacing="1" align="center"> <!-- align="center" : 표 자체가 중간으로 -->
+        <tr valign="top" bgcolor="white" align="center"> <!-- align="center" : tr에 해당되는 모든 요소가 중간으로 -->
+            <td valign="bottom" align="right">11</td> <!-- align="center" : 해당 td만 중간으로 -->
+            <td colspan="2">12</td>
+            <!-- <td>13</td> -->
+            <td>14</td>
+        </tr>
+        <tr valign="middle" bgcolor="white" align="center">
+            <td colspan="3">21</td>
+            <!--
+            <td>22</td>
+            <td>23</td>
+            -->
+            <td rowspan="2">24</td>
+        </tr>
+        <tr valign="bottom" bgcolor="white" align="center">
+            <td>31</td>
+            <td>32</td>
+            <td>33</td>
+            <!-- <td>34</td> -->
+        </tr>
+    </table>
+</body>
+</html>
