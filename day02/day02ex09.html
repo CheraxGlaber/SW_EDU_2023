@@ -8,15 +8,15 @@
 </head>
 <body>
     <h1>초등학교 저학년용 계산기</h1>
-    <p>결과는 음수가 나오지 않도록, 절대값처럼</p>
-    <input type="text" id="num1" value="5">
+    <p>결과는 음수가 나오지 않도록</p>
+    <input type="number" id="num1" value="5" size="3"> <!-- type="number"로 html 차원에서 값 유효성 체크 -->
     <select id="operator">
         <option value="+">+</option>
         <option value="-">-</option>
         <option value="*">*</option>
         <option value="/">/</option>
     </select>
-    <input type="text" id="num2" value="10">
+    <input type="number" id="num2" value="10" size="3">
     <input type="button" id="resultBtn" value="확인">
     <div id="result">결과 : </div>
     <script>
@@ -26,26 +26,68 @@
         let resultBtn = document.querySelector("#resultBtn");
         let result = document.querySelector("#result");
         resultBtn.onclick = function(event) {
-            if(operator.value == "+")
-            {
-                result.innerHTML = "결과 : " + (Number(num1.value) + Number(num2.value));
+
+            // 첫 번째 값 유효성 검사
+            if(num1.value == "" || !num1.value) { // 값이 입력되지 않은 경우, (!num1.value : num1.value == null || num1.value == undefined)
+                alert("첫 번째 값을 입력하세요");
+                num1.value = ""; // 값을 비워줌
+                num1.focus(); // focus는 특정 요소 선택, 마우스를 가져다 누른 것과 동일한 효과
+                return; // 뒤에 특정 값이 있을 경우는 호출한 곳으로 값을 돌려줌, return만 쓸 경우 여기서 더 이상 진행하지 않고 끝내라는 의미
             }
-            else if(operator.value == "-")
-            {
-                result.innerHTML = "결과 : " + Math.abs(Number(num1.value) - Number(num2.value));
+            // parseInt : 문자열 데이터를 정수 데이터로 변환
+            if(isNaN(parseInt(num1.value))) { // 숫자일 경우에만 계산 (NaN값이 들어오는 경우)
+                alert("오류: 첫 번째 값이 숫자가 아닙니다! 다시 입력하세요.");
+                num1.value = "";
+                num1.focus();
+                return;
             }
-            else if(operator.value == "*")
-            {
-                result.innerHTML = "결과 : " + (Number(num1.value) * Number(num2.value));
+
+            //두 번째 값 유효성 검사
+            if(num2.value == "" || !num2.value) { // 값이 입력되지 않은 경우, (!num1.value : num1.value == null || num1.value == undefined)
+                alert("두 번째 값을 입력하세요");
+                num2.value = ""; // 값을 비워줌
+                num2.focus(); // focus는 특정 요소 선택, 마우스를 가져다 누른 것과 동일한 효과
+                return; // 뒤에 특정 값이 있을 경우는 호출한 곳으로 값을 돌려줌, return만 쓸 경우 여기서 더 이상 진행하지 않고 끝내라는 의미
             }
-            else if(operator.value == "/")
-            {
-                result.innerHTML = "결과 : " + (Number(num1.value) / Number(num2.value));
+            // parseInt : 문자열 데이터를 정수 데이터로 변환
+            if(isNaN(parseInt(num2.value))) { // 숫자일 경우에만 계산 (NaN값이 들어오는 경우)
+                alert("오류: 두 번째 값이 숫자가 아닙니다! 다시 입력하세요.");
+                num2.value = "";
+                num2.focus();
+                return;
             }
-            else
-            {
-                alert("Error: Invalid operator");
+
+            // 연산자 유효성 검사
+            if("+-*/".indexOf(operator.value) === -1) { // indexOf()를 없는 문자열에 사용하면 -1이 반환된다.
+                alert("오류: 지원하지 않는 연산자입니다.");
+                operator.value = "";
+                operator.focus();
+                return;
             }
+
+            //연산
+            let trueNum1 = Number(num1.value);
+            let trueNum2 = Number(num2.value);
+            let resultValue = 0;
+            switch(operator.value)
+            {
+                case "+":
+                    resultValue =  trueNum1 + trueNum2;
+                    break;
+                case "-":
+                    resultValue =  Math.abs(trueNum1 - trueNum2); // 결과가 음수가 나오지 않도록 절대값 처리
+                    break;
+                case "*":
+                    resultValue =  trueNum1 * trueNum2;
+                    break;
+                case "/":
+                    resultValue =  trueNum1 / trueNum2;
+                    break;
+                default:
+                    alert("오류: 계산할 수 없습니다!");
+                    return;
+            }
+            result.innerHTML = "결과 : " + resultValue;
         }
     </script>
 </body>
