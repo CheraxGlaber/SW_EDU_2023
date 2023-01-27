@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>day03ex02.html</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <script>
+        let arr = ['오징어', '꼴뚜기', '대구', '명태']; // 생성자를 이용한 "new Array();"는 자바스크립트에서 권장되지 않는 방법
+        arr[1] = "메뚜기";
+        arr.splice(2, 1); // arr배열에서 2번째 요소부터 1개 삭제
+        
+        for(var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        for(var fish of arr) { // 요소를 바로 뽑아오는 형태
+            console.log(fish);
+        }
+
+        for(var i in arr) { // 인덱스를 뽑아오는 형태
+            console.log(i);
+        }
+
+        arr.forEach(function(item, index) {
+            console.log(item, index);
+        });
+
+        console.log(arr.map(function(item, index) {
+            return index + "번째는" + item + "입니다.";
+        }));
+
+        var newHtml = arr.map(function(item, index) {
+            return "<p>" + item + "</p>";
+        });
+        document.getElementById("demo").innerHTML = newHtml;
+    </script>
+</body>
+</html>
