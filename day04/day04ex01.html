@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         * {
-            box-sizing: border-box;
+            box-sizing: border-box; /* border를 주었을 때 바깥쪽이 아닌 안쪽으로 들어감 */
           }
           
           .slider {
@@ -47,11 +47,11 @@
             background: #eee;
             transform-origin: center center;
             transform: scale(1);
-            transition: transform 0.5s;
-            position: relative;
+            transition: transform 0.5s; /* 0.5초 동안 서서히 변화되도록 애니메이션 효과를 적용 */
+            position: relative; /* static일 때 배치되는 위치를 기준으로 상대적 위치를 지정하는 속성 */
             
             display: flex;
-            justify-content: center;
+            justify-content: center; /* 양쪽 정렬 */
             align-items: center;
             font-size: 100px;
           }
@@ -87,19 +87,20 @@
             text-decoration: none;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
+            border-radius: 50%; /* 슬라이더에 1, 2, 3번 버튼이 동그랗게 표시되도록 만들기 위해 지정 */
             margin: 0 0 0.5rem 0;
             position: relative;
           }
-          .slider > a:active {
+          .slider > a:active { /* 마우스를 누르고 있을 때 */
             top: 1px;
           }
-          .slider > a:focus {
+          .slider > a:focus { /* 마우스를 클릭했을 때 */
             background: #000;
           }
     </style>
 </head>
 <body>
+    <!-- 슬라이더를 사용하여서 눌렀을때 이미지가 바뀌는 실습 -->
     <div class="slider">
         <div class="slides">
           <div id="slide-1"><img src="./Carousel/img/1.png" alt=""></div>
