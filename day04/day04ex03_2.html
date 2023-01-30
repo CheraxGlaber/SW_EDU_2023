@@ -60,6 +60,104 @@
             //    //console.log(this == form1);
             //    validateForm(this);
             //}
+            ```jsx
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* input[type] 을 이용해서 안에 타입만 바꿔라로 적용가능 */
+        #form1 input[type=text] {
+            border: none;
+            border-bottom: 4px solid blue;
+            background-color: skyblue;
+            width: 400px;
+        }
+
+        #form1 input[type=submit] {}
+
+        #form1 textarea {
+            border: 0px;
+            border-bottom: 4px;
+            background-color: black;
+            color: white;
+            width: 400px;
+        }
+    </style>
+    <script>
+        let form1 = document.querySelector("#form1");
+
+        function validateForm(event) {
+            form = event.target;
+            event.preventDefault();
+            if (form1.subject.value == "") {
+                alert("제목을 입력 하세요");
+                form1.subject.focus();
+                return;
+            }
+            if (form1.writter.value == "") {
+                alert("이름을 입력 하세요");
+                form1.writter.focus();
+                return;
+            }
+            if (form1.writter.value.length < 2) {
+                alert("이름을 2글자 이상 입력하세요")
+                form1.writter.focus();
+                return;
+            }
+
+            form1.action = "https://www.naver.com";
+            form1.submit();
+        }
+
+        window.onload = function () {
+            let form1 = document.getElementById("form1");
+            // form1.onsubmit = function () {
+            //     event.preventDefault();
+
+            //     validateForm(this);
+
+            // }
+            // document.forms 문서의 모든폼을 다 읽어 HTMLCollection 형태로 반환
+            // let form1 = document.forms[0] // 폼의 순서대로 가져옴
+
+            form1.onsubmit = validateForm;
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>글쓰기</h1>
+    <form action="" id="form1"> 
+        <table border="0" id="table">
+            <tr>
+                <th>제목</th>
+                <td><input type="text" name="subject" id="subject"></td>
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td><input type="text" name="writter" id="writter"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><textarea name="content" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="submit" value="저장"></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>
+```
             form1.onsubmit = validateForm;  // 참조 시킬 경우엔 괄호 생략.
         }
     </script>
