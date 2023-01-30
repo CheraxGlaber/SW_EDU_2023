@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,68 +11,138 @@
             padding: 0;
             margin: 0;
         }
+
+        div.header1{
+            background-color:aqua;
+        }
+
         div.container div {
             padding: 3px;
-            margin : 3px;
-            border: 1px solid red;
+            margin: 3px;
+            border: 0px solid red;
             border-radius: 7px;
             width: 900px;
-            overflow: hidden;
+            overflow:hidden;
+            text-align:center;
         }
-        .header nav li {
+
+        .header1 nav li {
             float: left;
             width: 150px;
             height: 50px;
-            border: 1px solid gray;
+            border: 1px solid black;
             list-style: none;
+            margin:1px;
+            margin-inline-start:20px;          
         }
-        div.middle  div {
+
+        div.middle div{
             width: 150px;
             float: left;
-            height: 200px;
+            height: 300px;
         }
-        div.middle div.center {
+        div.middle div.center{
             width: 550px;
         }
-        div.footer {
-            clear: both;
-            height: 80px;
+
+        div.center>div{
+            width: 535px;
+            height:40px;
         }
-        div.center > div {
-            height: 80px;
-            width: 260px;
+        div.right{
+            background-color:rgb(0, 234, 255);
         }
-        div.center div:nth-child(1) {
-            width: 530px; 
+        div.center div:nth-child(1){
+            width: 535px;
+            height:40px;
+            text-align:left;
         }
+        div.center div:nth-child(3){
+            width: 535px;
+            height:40px;
+            text-align:left;
+        }
+        div.center div:nth-child(2){
+            width: 535px;
+            height:80px;
+        }
+        div.left1{
+            background-color: greenyellow;
+        }
+        div.middle li{
+            width: 150px;
+            height: 35px;
+            border: 1px solid black;
+            list-style: none;
+            overflow: hidden;  
+            padding:0px;
+            margin-top:20px;
+        }
+        div.middle li:hover{
+            background-color: rgb(0, 255, 170);
+        }
+
+
+        div.foot{
+            clear:both;
+            height:80px;
+            background-color:rgb(223, 216, 216);
+        }
+
+        .header1 nav li:hover {
+            background-color:red;
+            color:yellow;
+        }
+
     </style>
 </head>
+
 <body>
     <div class="container">
-        <div class="header">
-            <h1>길동이의 코딩교실</h1>
-            <nav>
-                <ul>
-                    <li>HOME</li>
-                    <li>PROFILE</li>
-                    <li>GALLERY</li>
-                    <li>LECTURE</li>
-                    <li>BOARD</li>
-                </ul>
-            </nav>
+        <div class="header1">
+            <header>
+                <h1>규식의 홈페이지</h1>
+                <nav>
+                    <ul>
+                        <li>HOME</li>
+                        <li>PROFILE</li>
+                        <li>GALLERY</li>
+                        <li>LECTURE</li>
+                        <li>BOARD</li>
+                    </ul>
+                </nav>
+            </header>
         </div>
-        <div class="middle">
-            <div class="left"></div>
-            <div class="center">
-                <div>banner</div>
-                <div>section1</div>
-                <div>section2</div>
-            </div>
-            <div class="right"></div>
-        </div>
-        <div class="footer">
 
+        <div class="middle">
+            <div class="left1">
+                <ul>
+                    <li>stylesheet1</li>
+                    <li>stylesheet2</li>
+                    <li>stylesheet3</li>
+                    <li>stylesheet4</li>
+                    <li>stylesheet5</li>
+                </ul>
+            </div>
+            <div class="center">
+                <div><h1>같지만 다른 홈페이지</h1></div>
+                <div>스타일시트에 따라서 달라진다</div>
+                <div><h1>스타일이 없으면?</h1></div>
+                <div>스타일이 없으면 어떻게될까?</div>
+            </div>
+            <div class="right">
+                <br/>
+                <h5>사이드 메뉴</h5>
+                사이드 메뉴 이다
+            </div>
+
+
+        </div>
+
+        <div class="foot">
+            미니 홈페이지 베이스 만들기
         </div>
     </div>
 </body>
+
 </html>
