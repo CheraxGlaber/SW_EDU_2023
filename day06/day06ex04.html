@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN을 현재 폴더 경로 방식으로 변경 -->
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <script src="./bootstrap/jquery.slim.min.js"></script>
+    <script src="./bootstrap/popper.min.js"></script>
+    <script src="./bootstrap/bootstrap.bundle.min.js"></script>
+    <title>bootstrap</title>
+    <!-- 자바스크립트는 식별자로 특수문자 $나 _를 사용 가능하다. jQuery가 연결되었다면 $() 함수를 사용할 수 있다. var $ = jQuery; (jQuery를 $로 대체 가능) -->
+    <script>
+        $(document).ready(function(){ // function()은 콜백함수
+            alert("Start jQuery!"); // jQuery 동작 확인용 알림
+        })
+    </script>
+    <style>
+        div.jumbotron {
+            padding-bottom: 100px;
+        }
+        form.form-inline {
+            margin-left: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1>Comstudy Coding Schools</h1>
+          <p>범준샘 코딩 스쿨</p>
+        </div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">Comstudy</a>
+          
+            <!-- Links -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link 2</a>
+              </li>
+          
+              <!-- Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  Dropdown link
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Link 1</a>
+                  <a class="dropdown-item" href="#">Link 2</a>
+                  <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+              </li>
+            </ul>
+            <form class="form-inline" action="/action_page.php">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+              </form>
+        </nav>
+    </div>
+      <div class="container">
+        <h3>Navbar With Dropdown</h3>
+        <p>This example adds a dropdown menu in the navbar.</p>
+    </div>
+</body>
+</html>
