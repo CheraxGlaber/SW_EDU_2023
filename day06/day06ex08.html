@@ -9,9 +9,23 @@
 <body>
     <script>
         function testFn01() {
-            console.log("testFn01()에서 this : " + this);
+            console.log("testFn01()에서 this : ", this);
         }
+
         testFn01(); // 함수는 호출을 해야 실행 된다.
+        // window['testFn01'](); // 윈도우의 멤버 필드로 접근할 수 있다.
+        // window['obj']['objFn']();
+
+        var obj = {
+            name : "my object",
+            objFn : function() {
+                console.log("objFn에서 this는 : ", this);
+            }
+        }
+
+        obj.objFn();
+        // obj['objFn']();
+
     </script>
 </body>
 </html>
