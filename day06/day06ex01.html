@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 애니메이션 실습</title>
+    <style>
+        @keyframes box1 { /* box라고 이름 붙여놓은거에 적용되도록 */
+            from {background-color: red;} /* from to는 transition과 비슷하지만 시작하자말자 변화를 줌*/
+            to {background-color:yellow;}
+        }
+
+        @keyframes box2 {
+            0% {
+                background-color: red;
+            }
+            25% {
+                background-color: green;
+                width: 300px; /* 스타일시트처럼 너비도 함께 변환됨 */
+                left: 200px;
+            }
+            50% {
+                background-color: blue;
+                height: 300px; /* 높이도 변환 */
+                transform: rotate(-360deg);
+            }
+            75% {
+                background-color: yellow;
+            }
+        }
+        
+        div#box1 {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            background-color: red;
+            animation-name: box1;
+            animation-duration: 3s;
+        }
+
+        div#box2 {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            background-color: red;
+            left: 0px;
+            transform: rotate(0deg); /* 회전 0도 */
+            position: relative;
+            animation-name: box2;
+            animation-duration: 3s;
+        }
+    </style>
+</head>
+<body>
+    <h1>css 애니메이션 실습</h1>
+    <div id="box1">BOX</div>
+    <div id="box2">BOX</div>
+</body>
+</html>
