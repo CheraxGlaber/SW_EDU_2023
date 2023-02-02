@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 변수 범위</title>
+</head>
+<body>
+    <script>
+        if (true) {
+            // if문 블럭 안에서 변수를 만듬, 블럭 안에서 선언했기 때문에 window의 멤버가 됨.
+            var a = 200; // var는 함수 단위이기 때문에 블럭 안에서 선언 변수를 외부 접근 가능.
+
+        }
+        console.log(a);
+        function bbb() {
+            var b = "hello"; // 함수 내부에서만 적용, window에서는 적용되지 않음
+            c = "world"; // 함수 내부에서 썼지만, var를 쓰지 않았으므로 window 객체의 필드가 됨
+        }
+        bbb();
+        console.dir(window);
+    </script>
+</body>
+</html>
