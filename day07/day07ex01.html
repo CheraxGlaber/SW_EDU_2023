@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 변수</title>
+</head>
+<body>
+    <script>
+        /* 
+            자바스크립트 변수 선언 (다이나믹 타입)
+            변수를 선언할때 타입이 결정되지 않는다.
+            변수의 값이 저장되면 변수에 저장되는 데이터의 타입에 따라 변수 타입이 정해진다.
+        */
+        /* 
+            let, var 등으로 변수를 선언한다.
+            const는 상수 선언.
+        */
+        var unknown; // undefined (변수를 선언했지만 값은 없는 경우, 한번도 사용하지 않음)
+        var name1 = null; // object, 객체를 참조하지 않고 있다 (typeof name1 = object, name1 = null)
+        var name2 = "홍길동"; // string 타입
+        name2 = 200; // number 타입, name2의 값이 200으로 바뀌었기 때문
+        /*
+            var나 function은 윈도우에 포함(윈도우의 멤버로 추가) + 호이스팅이 된다.
+            var로 선언한 변수는 범위(scope)가 함수 단위이다.
+            window는 페이지 최상위 객체
+        */
+        /*
+            let으로 선언하면 scope가 블럭{} 단위이다. (window에는 들어가지 않는다.)
+        */
+       let name3 = "일지매";
+    </script>
+</body>
+</html>
