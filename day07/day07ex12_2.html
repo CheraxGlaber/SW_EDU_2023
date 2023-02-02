@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#box {
+            border: 1px solid black;
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all .03s;
+        }
+    </style>
+</head>
+<body>
+    <button id="playBtn">Play</button>
+    <div id="box">box</div>
+    <script>
+        var playBtn = document.getElementById("playBtn");
+        var move = function(callback) {
+            var box = document.querySelector("div#box");
+            // parseInt 정수까지만 바꾸어주고 뒤에 값은 버림
+            var x = parseInt(getComputedStyle(box).left); // getComputedStyle로 x좌표 설정값을 읽어옴
+            var refInterval = setInterval(function() { // 인터벌의 참조값 선언
+                x += 10;
+                if(x >= 400) {
+                    x = 400;
+                    clearInterval(refInterval);
+                    // 모든 작업 종료 후 실행
+                    callback(box); // callback == move 호출 시의 익명함수
+                }
+                box.style.left = x + "px";
+            }, 30); // 컴퓨터 성능에 따라 interval은 달라짐 (절대적인 시간이 아님)
+        };
+
+        playBtn.onclick = function(event) {
+            move(function(target) { // box가 target으로 넘어옴
+                target.style.backgroundColor = "yellow"; // window에 들어있지는 않지만, box에는 접근할 수 있다
+                alert("실행 완료!");
+            });
+        };
+    </script>
+</body>
+</html>
