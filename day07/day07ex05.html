@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+</head>
+<body>
+    <script>
+        var cnt = 0;
+        var ref = setInterval(function() {
+            console.log(this); // this는 window
+            // 0.5초에 한번씩 function 실행
+            cnt += 2;
+            console.log(cnt);
+            if (cnt == 10) {
+                clearInterval(ref); // 반복을 강제 종료
+            }
+        }, 500);
+    </script>
+</body>
+</html>
