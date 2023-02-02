@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 안에서 setInterval</title>
+</head>
+<body>
+    <script>
+        // 클래스 식별자는 대문자로 시작한다.
+        // 클래스 생성자 선언
+        function People(_name) { // People 객체 내부에서 this는 People 객체 자신, setInterval 함수에서 this는 다시 Window 객체
+            this.name = _name;
+            console.log(this.name); // = 홍
+            this.move = function() {
+                console.log(this); // People
+                var cnt = 0;
+                var THIS = this; // 함수 스코프에서 사용할 변수에 this를 대입, 인터페이스처럼 연결시켜주는 역할
+                var ref = setInterval(function() {
+                    //console.log(this); // Window
+                    //console.log(this.name); // != 홍
+                    // setInterval 내부에서 People의 멤버를 접근하는 방법
+                    console.log("THIS.name : ", THIS.name);
+                    if(cnt++ >= 10) {
+                        clearIntervals(ref);
+                    }
+                }, 500)
+            }
+        }
+
+        // 객체 생성
+        var p = new People();
+        p.move();
+    </script>
+</body>
+</html>
