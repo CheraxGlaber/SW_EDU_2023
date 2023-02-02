@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 변수 범위</title>
+</head>
+<body>
+    <script>
+        var myObj = {
+            name : "홍길동",
+            email : "hong@saram.com",
+            showInfo : function() {
+                var a = "a 변수 값"; // showInfo 함수 범위에서만 사용됨
+                let b = "b 변수 값"; // 블럭 안에서만 사용됨
+                this.c = "c 변수 값"; // myObj 객체의 멤버
+                console.log(this.name, this.email);
+                console.log(this.a, this.b, this.c); // a와 b는 myObj 객체 내에 존재하지 않음
+                console.log("myObj 내의 this : ", this);
+                console.log(window); // a와 b는 window 내에도 포함되어 있지 않다. 단지 함수 안에서만 있을 뿐.
+            }
+        }
+        myObj['showInfo']();
+    </script>
+</body>
+</html>
