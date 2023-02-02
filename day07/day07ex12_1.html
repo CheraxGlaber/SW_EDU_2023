@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#box {
+            border: 1px solid black;
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all .03s;
+        }
+    </style>
+</head>
+<body>
+    <button id="playBtn">Play</button>
+    <div id="box">box</div>
+    <script>
+        var playBtn = document.getElementById("playBtn");
+        playBtn.onclick = function() {
+        // transition보다 고전적인 방법
+            var box = document.querySelector("div#box");
+            var boxStyle = getComputedStyle(box); // getComputedStyle로 설정값을 읽어옴
+            // parseInt 정수까지만 바꾸어주고 뒤에 값은 버림
+            var x = parseInt(boxStyle.left); // x좌표
+            var y = parseInt(boxStyle.top); // y좌표
+            var w = parseInt(boxStyle.width); // 너비
+            var h = parseInt(boxStyle.height); // 높이
+            var refInterval = setInterval(function() { // 인터벌의 참조값 선언
+                x += 10;
+                if(x >= 400) {
+                    x = 400;
+                    clearInterval(refInterval);;
+                }
+                box.style.left = x + "px";
+            }, 1000/30); // 컴퓨터 성능에 따라 interval은 달라짐 (절대적인 시간이 아님)
+        };
+        playBtn.onclick = move;
+    </script>
+</body>
+</html>
