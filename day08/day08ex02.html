@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsDau03Ex01.html</title>
+</head>
+<body>
+    <script>
+        var age = Number(prompt("나이 입력: "));
+        document.write(`당신의 나이는 ${age}세입니다.`);
+        // 삼항연산자 : (조건)?(참일때 결과):(거짓일때 결과);
+        // var isAdult = (age>19)?"성인":"미성년";
+        document.write(`</br>당신은 ${(age>19)?"성인":"미성년"}입니다.`); // 삼항연산자는 문장 안에 넣어서 사용해도 됨
+    </script>
+</body>
+</html>
