@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또번호 생성기</title>
+    <style>
+        div#lottoArea div {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            border: 1px solid red;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>로또 번호 생성기</h1>
+    <fieldset>
+        <legend>Lotto</legend>
+        <div id="lottoArea">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </fieldset>
+    <button id="genBtn">생성</button>
+
+    <script>
+        const colors = ['red','green','orange','yellow','skyblue','pink'];
+        const ballList = document.querySelectorAll("#lottoArea > div");
+        const genBtn = document.getElementById("genBtn");
+
+        ballList.forEach((item, idx) => {
+            item.style.backgroundColor = colors[idx];
+        });
+
+        function lottoFn() {  // 1~45까지의 중복 되지 않은 난수 6개 생성
+            /*
+                // indexOf를 사용하여 중복 체크
+                const lotto = [];
+                while(lotto.length<6) {
+                    var random = 1 + Math.floor(Math.random()*45);
+                    if(lotto.indexOf(random) == -1) {
+                        lotto.push(random);
+                    }
+                }
+                console.log(lotto);
+                lotto.sort();
+                ballList.forEach((item, idx) => {
+                    item.innerText = lotto[idx];
+                });
+            */
+       
+        
+            ballList.forEach((item, idx) => {
+                item.style.backgroundColor = colors[idx];
+            });
+            const lotto = new Set(); // set은 중복을 포함하지 않는 집합
+            while(lotto.size < 6) {
+                lotto.add(1 + Math.floor(Math.random()*45));
+            }
+            let newLotto = [];
+            lotto.forEach((value) => {
+                newLotto.push(value); // 생성된 것을 newLotto에 옮겨 닮음
+            }); // set에는 key나 index가 없음 (item만 있음), 따라서 sort도 없음
+            newLotto.sort(function(a, b) {return a-b}); // 콜백함수로 직접 정렬
+            newLotto.forEach((value, idx) => {
+                // ballList에 value를 넣어야함
+                ballList[idx].innerHTML = value;
+            });
+        }
+
+        genBtn.addEventListener("click", (event) => {
+            lottoFn();
+        });
+    </script>
+</body>
+</html>
