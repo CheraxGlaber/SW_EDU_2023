@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsDau03Ex01.html</title>
+</head>
+<body>
+    <script>
+        /*
+        var undefined; // undefined
+        console.log(null);
+        console.log(NaN);
+
+        // if ~ else
+        // undefined, null, null, NaN 등은 false와 동일하다.
+        if(true) {
+            document.write("true 입니다.");
+        } else {
+            document.write("false 입니다.");
+        }
+        
+        if(false) {
+            document.write("true 입니다.");
+        } else {
+            document.write("false 입니다.");
+        }
+        */
+
+        // prompt(팝업창으로 데이터 입력)는 팝업창으로 열린다.
+        var age = Number(prompt("나이 입력: ")); // prompt로 입력받은 데이터의 타입은 string이다, parseInt나 Number로 형변환해서 사용
+        // parseInt에서 NaN일 경우 NaN반환, Number에서 NaN일 경우 0 반환
+        document.write(`당신의 나이는 ${age}세입니다.`);
+        if(201 > age && age >= 60) {
+            var isAdult = "노인";
+        } else if(60 > age && age > 19) {
+            var isAdult = "성인";
+        }  else if(0 > age && age <= 19) {
+            var isAdult = "미성년자";
+        } else {
+            var isAdult = "비인가 사용자";
+        }
+        document.write(`</br>당신은 ${isAdult}입니다.`);
+    </script>
+</body>
+</html>
