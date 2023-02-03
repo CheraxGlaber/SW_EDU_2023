@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch case 실습</title>
+</head>
+<body>
+    <h1>월을 선택하세요.</h1>
+    <div id="monthBtns">
+        <button data-month="1">1월</button>
+        <button data-month="2">2월</button>
+        <button data-month="3">3월</button>
+        <button data-month="4">4월</button>
+        <button data-month="5">5월</button>
+        <button data-month="6">6월</button>
+        <button data-month="7">7월</button>
+        <button data-month="8">8월</button>
+        <button data-month="9">9월</button>
+        <button data-month="10">10월</button>
+        <button data-month="11">11월</button>
+        <button data-month="12">12월</button>
+    </div>
+    <div id="demo">결과:</div>
+    <script>
+        const demo = document.getElementById("demo");
+        const monthBtnList = document.querySelectorAll("div#monthBtns > button");
+        monthBtnList.forEach(function(item, idx) {
+            item.addEventListener("click", function(event) {
+                var day;
+                let month = Number(event.target.dataset.month);
+                switch(month) {
+                    case 2 :
+                        day = 28;
+                        break;
+                    case 4 : case 6 : case 9 : case 11 :
+                        day = 30;
+                        break;
+                    default :
+                        day = 31;
+                }
+                console.log(typeof(day));
+                if(typeof(day) != "number") {
+                    demo.innerHTML = `결과 : 오류가 발생했습니다.`;
+                } else {
+                    demo.innerHTML = `결과 : ${month}월은 ${day}일까지 있다.`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
