@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES5 이전에는 function 키워드를 class 키워드 대신 사용.
+        function People(name, age) {
+            this.name = name;
+            this.age = age;
+            /*
+                this.showInfo = function() { // 생성자 내부에 함수를 추가하면 객체가 생성될때마다 소스코드가 복제된다.
+                    document.write("<p>" + name + " : " + age + "세</p>");
+                }
+            */
+        }
+
+        // class.prototype은 해당 class의 모든 객체가 공유하는 속성이다. (해당 class를 상속받으면 사용 가능)
+        People.prototype.showInfo = function() {
+            document.write("<p>" + this.name + " : " + this.age + "세</p>");
+        }
+
+        // 상속
+        function Student(name, age, major) {
+            this.name = name;
+            this.age = age;
+            this.major = major;
+        }
+        Student.prototype = new People(); // 부모의 프로토타입을 넣어줌, 따라서 showInfo 사용 가능
+        // People로 프로토타입을 바꾸었기(prototype을 다른 클래스의 객체로 바뀐 상태) 때문에 생성자가 Student가 되지 않을 수도 있기(생성자가 사라졌을 수도 있음)때문에 추가
+        Student.prototype.constructor = Student; // 자식 클래스 자신의 생성자로 사용하라는 의미
+        Student.prototype.showInfo = function() { // 재정의
+            document.write("<p>전공이 "+ this.major+"인 "+ this.name +" : "+ this.age +"세</p>");
+        }
+        var han = new People("한길동", 23);
+        han.showInfo();
+
+        var hong = new People("홍길동", 25);
+        hong.showInfo();
+
+        var hwang = new Student("황길동", 24, "컴퓨터공학");
+        hwang.showInfo();
+    </script>
+</body>
+</html>
