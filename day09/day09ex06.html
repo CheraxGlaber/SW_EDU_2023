@@ -27,7 +27,7 @@
         }
         // 계층(최상위 > 최하위) : Object > EventTarget > Node > Element > HTMLElement > HTMLDivElement
         var box = document.getElementById("box");
-        var myDiv = document.createElement("MyDiv");
+        var myDiv = document.createElement("MyDiv"); // 호이스팅(끌어올림) 적용 : 아래쪽에 선언된 함수 호출 가능
         myDiv.innerHTML = "My Div 태그";
         box.appendChild(myDiv);
     </script>
