@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#box {
+            border: 1px solid red;
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>길동이의 코딩 교실</h1>
+    <div id="box">Box</div>
+    <div id="targetBox">Target Box</div>
+    <script>
+        var box = document.getElementById("box");
+        /*
+            box.onmousedown = function(event) { // 마우스를 누르면 이벤트 발생
+                console.dir(event.clientX, event.clientY);
+            }
+
+            box.addEventListener("mousedown", function(event) {
+                console.dir(event.clientX, event.clientY);
+            });
+
+            box.addEventListener("mousedown", (event) => {
+                console.dir(event.clientX, event.clientY);
+            });
+        */
+
+        // box의 좌표를 마우스의 좌표로 move를 할때 바꿈
+        box.addEventListener("mousedown", (event1) => { // 마우스를 down했을 때 box와 클릭 지점과의 간격을 유지한다.
+            var targeted = event1.target;
+            var targetX = parseInt(getComputedStyle(targeted).getPropertyValue("left"));
+            var targetY = parseInt(getComputedStyle(targeted).getPropertyValue("top"));
+            var gapX = targetX - event1.clientX;
+            var gapY = targetY - event1.clientY;
+            let mousemoveHandler = (event2) => {
+                targeted.style.left = event2.clientX + gapX + "px";
+                targeted.style.top = event2.clientY + gapY + "px";
+            };
+            box.addEventListener("mousemove", mousemoveHandler);
+            document.addEventListener("mouseup", (event) => {
+                box.removeEventListener("mousemove", mousemoveHandler);
+            });
+        });
+    </script>
+</body>
+</html>
