@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 프로토타입 : 클래스가 가지고 있는 공유된 영역
+        /* 테스트용
+            String.prototype.kkk = function() {
+                console.log("나는 kkk함수", this.toString); // this는 string 출력
+            }
+        */
+
+        // String 클래스의 prototype에 equals 함수 추가
+        String.prototype.equals = function(str) {
+            return this.toString() == str.toString();
+        }
+
+        /*
+            "Hello World".kkk(); // prototype을 이용한 class 객체 활용
+        */
+        var nation = new String("korea");
+        /*
+            nation.kkk();
+        */
+        var a = "korea";
+
+        /*
+            console.log(nation == a); // true
+            console.log(nation === a); // false
+            console.log(typeof a, typeof nation); // string, object(object는 string보다 위에 있음)
+        
+            console.dir(nation);
+            console.dir(a);
+        */
+
+        console.log(a.equals(nation)); // true
+    </script>
+</body>
+</html>
