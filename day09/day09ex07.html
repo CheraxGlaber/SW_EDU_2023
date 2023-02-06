@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Arrays</h1>
+    <p id="demo"></p>
+    <script>
+        const values = ["오징어", "꼴뚜기" ,"대구", "명태", "거북이"];
+        const newArr = values.map(function(value) {
+            return "<h2>" + value + "</h2>";
+        });
+        var demo = document.getElementById('demo');
+        newArr.forEach(function(elem) {
+            demo.innerHTML += elem;
+        });
+    </script>
+</body>
+</html>
