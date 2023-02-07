@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage 실습</title>
+</head>
+<body>
+    <h1>localStorage 실습</h1>
+    <script>
+        // localStorage를 사용해 브라우저에 key-value 값을 Storage에 저장할 수 있다. 저장한 데이터는 세션간에 공유되며, 세션이 바뀌어도 저장한 데이터가 유지된다.
+        // (여러 탭 간에 데이터가 서로 공유되며, 탭이나 창을 닫아도 데이터는 브라우저에 그대로 남는다.)
+        /*
+            // window.localStorage.setItem(key, value); // 앞의 window.은 생략 가능
+            window.localStorage.setItem("user", "Hong-Gildong");
+            var user2 = localStorage.getItem("user");
+            document.write(`<h2>${user2}</h2>`);
+        */
+        var arr = ["오징어", "꼴뚜기", "대구", "명태", "거북이"];
+        localStorage.setItem("fishs", arr);
+        var fish2 = localStorage.getItem("fishs");
+        for(let item of fish2) {
+            document.write(item);
+        }
+    </script>
+</body>
+</html>

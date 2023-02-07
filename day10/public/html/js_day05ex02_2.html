@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_day05ex02_2</title>
+    <!-- cdn을 이용해 underscore 템플릿 사용 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js" integrity="sha512-2V49R8ndaagCOnwmj8QnbT1Gz/rie17UouD9Re5WxbzRVUGoftCu5IuqqtAM9+UC3fwfHCSJR1hkzNQh/2wdtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <h1>js_day05ex02_2</h1>
+    <div id="demo">
+        Ajax 기술로 saram_data.json 파일 로드
+    </div>
+    <p><button id="loadBtn">Load Button</button></p>
+    <script>
+        var demo = document.getElementById("demo");
+        var loadBtn = document.getElementById("loadBtn");
+        loadBtn.addEventListener("click", (event)=>{
+            alert("load button 클릭!");
+            // xhr을 이용해 Ajax 처리
+            const xhr = new XMLHttpRequest();
+            // console.dir(xhr);
+            xhr.onload =(event) => { // 요청 결과 전송 후 처리하는 이벤트 핸들러
+                let resTxt = xhr.responseText;
+                // console.log(resTxt);
+                let jsonData = JSON.parse(resTxt);
+                // console.log(jsonData);
+                let saramList = jsonData["saramList"];
+                // console.log(saramList);
+            };
+            xhr.open("GET","http://localhost:3000/js/saram_data.json", true); // 요청 페이지 설정, true(default)는 비동기
+            xhr.send(); // 실행 명령
+        });
+    </script>
+</body>
+</html>
