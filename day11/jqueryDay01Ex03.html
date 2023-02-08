@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+    <ul>
+        <li>오징어</li>
+        <li>꼴뚜기</li>
+        <li>대구</li>
+        <li>명태</li>
+        <li>거북이</li>
+    </ul>
+    <script>
+        var colors = ["red", "green", "blue", "orange", "pink"];
+        /*
+            // javascript
+            var a = $("ul>li");
+            for(var i = 0; i < a.length; i++) {
+                console.log(a[i]);
+            }
+        */
+
+        // jQuery : 리스트로 들어오면 리스트 처리, 콜백이 들어가면 콜백을 알아서 반복시켜줌
+        $("ul>li").css("background-color", function(idx, fontColor) {
+            // console.log(idx, fontColor);
+            return colors[idx];
+        });
+    </script>
+</body>
+</html>
