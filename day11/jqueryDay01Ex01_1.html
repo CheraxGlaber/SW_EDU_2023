@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jQueryCDN -->
+    <script src="http://code.jquery.com/jquery.js"></script> <!-- javascript때와 달리 속성으로 -->
+    <script>
+        // console.dir( $(document).);
+        // console.dir( document.);
+
+        // jQuery의 진입점
+        /*
+            $(document).on("ready", function() {
+                alert("Hello jQuery");
+            });
+            $(document).ready(function() {
+                alert("Hello jQuery");
+            });
+            jQuery(function() {
+                alert("Hello jQuery");
+            });
+        */
+        $(function() {
+            /*
+                // javascript
+                document.getElementById("clickBtn").addEventListener("click", function(event) {
+                    alert("Hello jQuery");
+                });
+            */
+           // jQuery
+            $("#clickBtn").on("click", function(event) { // on은 addEventListener와 비슷
+                alert("Hello jQuery");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="clickBtn">Click Me</button>
+</body>
+</html>
